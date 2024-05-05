@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({super.key});
 
+  @override
+  State<Login> createState() => _LoginState();
+}
+
+class _LoginState extends State<Login> {
   void somthing() {}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,15 +52,16 @@ class Login extends StatelessWidget {
                 controller: null,
                 obscureText: true,
                 decoration: InputDecoration(
-                    hintText: "Password",
-                    // errorText: 'Password is required',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0)),
-                    suffix: Image.asset(
-                      "Assets/Remove red eye.png",
-                      height: MediaQuery.of(context).size.height / 40,
-                      width: MediaQuery.of(context).size.width / 15,
-                    )),
+                  hintText: "Password",
+                  // errorText: 'Password is required',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20.0)),
+                  suffixIcon: Image.asset(
+                    "Assets/Remove red eye.png",
+                    height: MediaQuery.of(context).size.height / 40,
+                    width: MediaQuery.of(context).size.width / 15,
+                  ),
+                ),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 52,
