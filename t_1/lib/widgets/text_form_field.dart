@@ -19,12 +19,13 @@ class TxtFormField extends StatelessWidget {
         child: TextFormField(
            obscureText:obscureText,
           decoration: InputDecoration(
-            suffixIcon:Icon(suffixIcon) ,
             hintText: hintText,
             hintStyle: const TextStyle(color: Appcolors.hintColor),
            
             border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0)),
+            
+            
           ),
         ),
       ),
