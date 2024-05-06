@@ -6,13 +6,13 @@ class TxtFormField extends StatelessWidget {
   final bool obscureText;
   final IconData? suffixIcon;
 
-   TxtFormField({super.key, required this.hintText, required this.obscureText, this.suffixIcon});
+   const TxtFormField({super.key, required this.hintText, required this.obscureText, this.suffixIcon});
 
 
   @override
   Widget build(BuildContext context) {
 
-    return Container(
+    return SizedBox(
       width: MediaQuery.of(context).size.width ,
       child: Padding(
         padding: const EdgeInsets.all(8.0),

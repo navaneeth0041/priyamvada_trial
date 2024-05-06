@@ -1,6 +1,4 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:t_1/resources/colors.dart';
 import 'package:t_1/widgets/rounded_button.dart';
 import 'package:t_1/widgets/text_form_field.dart';
@@ -15,15 +13,13 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return  Scaffold(
       resizeToAvoidBottomInset:true,
       backgroundColor: Appcolors.backgroundColor,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: Icon(Icons.arrow_back_ios_sharp),
+        leading: const Icon(Icons.arrow_back_ios_sharp),
       ),
       body: __buildUI(context),
 
@@ -34,7 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          Container(
+          SizedBox(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: SafeArea(
@@ -51,8 +47,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   Form(child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
+                      const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: Column(
                           
                           children: [
