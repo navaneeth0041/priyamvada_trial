@@ -14,30 +14,41 @@ class SignUpScreen extends StatefulWidget {
 class _SignUpScreenState extends State<SignUpScreen> {
   final bool _isPasswordVisible = false;
   final bool _isConfirmPassVisible = false;
+  bool _isChecked = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
       backgroundColor: Appcolors.backgroundColor,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: const Icon(Icons.arrow_back_ios_sharp),
-      ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              child: SafeArea(
+        child: SafeArea(
+          child: Stack(
+            children: [
+              Positioned(
+                top: 0,
+                left: 0,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                    icon: const Icon(Icons.arrow_back_ios_new_outlined),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).padding.top + 100,
+                  left: 0,
+                  right: 0,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Padding(
-                      padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                      padding: EdgeInsets.only(left: 20),
                       child: Text(
                         'Sign Up',
                         style: TextStyle(
@@ -52,17 +63,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             padding: const EdgeInsets.all(8.0),
                             child: Column(
                               children: [
-                                const TxtFormField(hintText: "Email", obscureText: false,),
-                                const TxtFormField(hintText: "Name", obscureText: false,),
+                                const TxtFormField(
+                                  hintText: "Email",
+                                  obscureText: false,
+                                ),
+                                const TxtFormField(
+                                  hintText: "Name",
+                                  obscureText: false,
+                                ),
                                 PassFormField(
                                   hintText: "Password",
                                   obscureText: !_isPasswordVisible,
-                                  suffixIcon: _isPasswordVisible ? Icons.visibility : Icons.visibility_off,
+                                  suffixIcon: _isPasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                                 PassFormField(
                                   hintText: "Confirm Password",
                                   obscureText: !_isConfirmPassVisible,
-                                  suffixIcon: _isConfirmPassVisible ? Icons.visibility : Icons.visibility_off,
+                                  suffixIcon: _isConfirmPassVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,
                                 ),
                               ],
                             ),
@@ -70,8 +91,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: CheckboxListTile(
-                              value: false,
-                              onChanged:(value) => {},
+                              value: _isChecked,
+                              onChanged: (value) {
+                                setState(() {
+                                  _isChecked = value!;
+                                });
+                              },
                               title: const Text(
                                 'I agree to Priyamvada',
                                 style: TextStyle(color: Appcolors.blackColor),
@@ -96,15 +121,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 ),
                               ),
                               const SizedBox(
-                                height: 51,
+                                height: 40,
                               ),
                               const Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Text("Have an Account?", style: TextStyle(color: Appcolors.blackColor),),
-                                  SizedBox(width: 2,),
-                                  Text("Login", style: TextStyle(color: Appcolors.termsColor),)
+                                  Text(
+                                    "Have an Account?",
+                                    style: TextStyle(color: Appcolors.blackColor),
+                                  ),
+                                  SizedBox(width: 2),
+                                  Text(
+                                    "Login",
+                                    style: TextStyle(color: Appcolors.termsColor),
+                                  )
                                 ],
                               ),
                             ],
@@ -115,8 +146,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ],
                 ),
               ),
-            )
-          ],
+            ],
+          ),
         ),
       ),
     );

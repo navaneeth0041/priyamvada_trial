@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:t_1/views/pre_auth/sign_up_view.dart';
+import 'package:flutter/services.dart';
+import 'package:t_1/views/pre_auth/onboarding_view.dart';
 
 void main() {
   runApp(const MyApp());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]);
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:const SignUpScreen(),
+      home:const OnboardingScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

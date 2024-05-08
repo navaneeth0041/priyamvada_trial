@@ -34,12 +34,15 @@ List<OnboardingScreenitems> contents = [
 
 
 class OnboardingScreen extends StatefulWidget {
+  const OnboardingScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _OnboardingScreenState createState() => _OnboardingScreenState();
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  PageController _controller = PageController();
+  final PageController _controller = PageController();
   int _currentIndex = 0;
 
 
