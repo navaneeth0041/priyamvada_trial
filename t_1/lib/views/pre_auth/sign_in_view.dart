@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:t_1/Constants/Colors.dart';
+import 'package:t_1/widgets/pass_form_field.dart';
+import 'package:t_1/widgets/rounded_button.dart';
+import 'package:t_1/widgets/text_form_field.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -8,6 +12,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final bool _isPasswordVisible=false;
   void somthing() {}
 
   @override
@@ -37,32 +42,13 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 25,
               ),
-              TextField(
-                controller: null,
-                decoration: InputDecoration(
-                    hintText: "Username or Email",
-                    // errorText: 'Username is required',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0))),
-              ),
+              const TxtFormField(hintText: "Username or email", obscureText: false),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 42,
               ),
-              TextField(
-                controller: null,
-                obscureText: true,
-                decoration: InputDecoration(
-                  hintText: "Password",
-                  // errorText: 'Password is required',
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20.0)),
-                  suffixIcon: Image.asset(
-                    "Assets/Remove red eye.png",
-                    height: MediaQuery.of(context).size.height / 40,
-                    width: MediaQuery.of(context).size.width / 15,
-                  ),
-                ),
-              ),
+              PassFormField(hintText: "Password", obscureText: !_isPasswordVisible,suffixIcon: _isPasswordVisible
+                                      ? Icons.visibility
+                                      : Icons.visibility_off,),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 52,
               ),
@@ -78,22 +64,9 @@ class _LoginState extends State<Login> {
               SizedBox(
                 height: MediaQuery.of(context).size.height / 25,
               ),
-              SizedBox(
+              const SizedBox(
                 width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: somthing,
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                  ),
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
-                ),
+                child: CircularButton(text: "Login"),
               ),
               SizedBox(
                 height: MediaQuery.of(context).size.height / 55,
@@ -110,7 +83,7 @@ class _LoginState extends State<Login> {
                         onPressed: null,
                         child: Text(
                           " Create Account",
-                          style: TextStyle(color: Color(0xFF1A99F5)),
+                          style: TextStyle(color: AppColors.termsColor),
                         ))
                   ],
                 ),
