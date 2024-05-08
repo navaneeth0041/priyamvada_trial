@@ -36,7 +36,7 @@ class _PassFormFieldState extends State<PassFormField> {
             ),
             suffixIcon: widget.suffixIcon != null
                 ? IconButton(
-                    icon: Icon(_isObscure ? Icons.visibility_off : Icons.visibility),
+                    icon: Icon(_isObscure ? Icons.visibility : Icons.visibility_off),
                     onPressed: () {
                       setState(() {
                         _isObscure = !_isObscure;

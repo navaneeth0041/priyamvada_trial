@@ -33,24 +33,24 @@ class _LoginState extends State<Login> {
                 child: Center(child: Image.asset("Assets/appLogo.png")),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 22,
+                height: MediaQuery.of(context).size.height / 42,
               ),
               const Text(
                 "Login",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 36),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 25,
+                height: MediaQuery.of(context).size.height / 50,
               ),
               const TxtFormField(hintText: "Username or email", obscureText: false),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 42,
+                height: MediaQuery.of(context).size.height / 65,
               ),
               PassFormField(hintText: "Password", obscureText: !_isPasswordVisible,suffixIcon: _isPasswordVisible
                                       ? Icons.visibility
                                       : Icons.visibility_off,),
               SizedBox(
-                height: MediaQuery.of(context).size.height / 52,
+                height: MediaQuery.of(context).size.height / 65,
               ),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
