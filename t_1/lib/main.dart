@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:t_1/views/post_auth/change_password_view.dart';
 import 'package:t_1/views/pre_auth/onboarding_view.dart';
 
 void main() {
@@ -20,7 +21,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:const OnboardingScreen(),
+      home:const ChangePassword(),
       debugShowCheckedModeBanner: false,
     );
   }
