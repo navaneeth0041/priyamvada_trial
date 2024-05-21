@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:t_1/views/post_auth/change_password_view.dart';
 // import 'package:t_1/views/pre_auth/onboarding_view.dart';
 import 'package:t_1/resources/theme.dart';
+import 'package:t_1/views/post_auth/chapter_screen.dart';
+import 'package:t_1/views/pre_auth/sign_up_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: themeData,
-      home:const ChangePassword(),
+      home:const ChapterScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
