@@ -7,7 +7,7 @@ class ChangePassword extends StatelessWidget {
   void functiontobecalled() {}
   @override
   Widget build(BuildContext context) {
-    const bool _isPasswordVisible = true;
+    const bool isPasswordVisible = true;
     final double screenHieght = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -31,38 +31,39 @@ class ChangePassword extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // SizedBox(height: screenHieght /10,),
             Text(
               "Enter old password",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const PassFormField(
-              hintText: "",
-              obscureText: !_isPasswordVisible,
-              suffixIcon:
-                  _isPasswordVisible ? Icons.visibility_off : Icons.visibility,
-            ),
+                hintText: "Password",
+                obscureText: !isPasswordVisible,
+                suffixIcon: isPasswordVisible
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+              ),
             Text(
               "Enter new password",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            const PassFormField(
-              hintText: "",
-              obscureText: !_isPasswordVisible,
-              suffixIcon:
-                  _isPasswordVisible ? Icons.visibility_off : Icons.visibility,
-            ),
+             const PassFormField(
+                hintText: "Password",
+                obscureText: !isPasswordVisible,
+                suffixIcon: isPasswordVisible
+                    ? Icons.visibility
+                    : Icons.visibility_off,
+             ),
             Text(
               "Confirm old password",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const PassFormField(
               hintText: "",
-              obscureText: !_isPasswordVisible,
-              suffixIcon:
-                  _isPasswordVisible ? Icons.visibility_off : Icons.visibility,
+              obscureText: !isPasswordVisible,
+              suffixIcon: isPasswordVisible
+                    ? Icons.visibility
+                    : Icons.visibility_off,
             ),
-            // Text("helo",style: Theme.of(context).textTheme.headlineSmall,)
           ],
         ),
       ),

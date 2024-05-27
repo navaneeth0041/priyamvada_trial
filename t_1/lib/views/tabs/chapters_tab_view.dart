@@ -9,7 +9,13 @@ class ChaptersTab extends StatelessWidget {
     return const Scaffold(
       body: Column(
         children: [
-          
+          Row(
+            children: [
+              Text("18 Chapters"),
+              Text("Download all"),
+              SizedBox()
+            ],
+          )
         ],
       ),
     );
