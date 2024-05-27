@@ -2,12 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:t_1/widgets/pass_form_field.dart';
 import 'package:t_1/widgets/rounded_button.dart';
 
-class ChangePassword extends StatelessWidget {
+class ChangePassword extends StatefulWidget {
   const ChangePassword({super.key});
+
+  @override
+  State<ChangePassword> createState() => _ChangePasswordState();
+}
+
+class _ChangePasswordState extends State<ChangePassword> {
   void functiontobecalled() {}
+
   @override
   Widget build(BuildContext context) {
-    const bool isPasswordVisible = true;
+    bool isPasswordVisible = true;
     final double screenHieght = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -35,7 +42,7 @@ class ChangePassword extends StatelessWidget {
               "Enter old password",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            const PassFormField(
+            PassFormField(
                 hintText: "Password",
                 obscureText: !isPasswordVisible,
                 suffixIcon: isPasswordVisible
@@ -46,7 +53,7 @@ class ChangePassword extends StatelessWidget {
               "Enter new password",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-             const PassFormField(
+             PassFormField(
                 hintText: "Password",
                 obscureText: !isPasswordVisible,
                 suffixIcon: isPasswordVisible
@@ -57,7 +64,7 @@ class ChangePassword extends StatelessWidget {
               "Confirm old password",
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            const PassFormField(
+            PassFormField(
               hintText: "",
               obscureText: !isPasswordVisible,
               suffixIcon: isPasswordVisible
