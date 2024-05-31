@@ -1,27 +1,23 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ChaptersTab extends StatefulWidget {
-  const ChaptersTab({super.key});
+class BookmarksTab   extends StatelessWidget {
+  const BookmarksTab  ({super.key});
 
-  @override
-  State<ChaptersTab> createState() => _ChaptersTabState();
-}
-
-class _ChaptersTabState extends State<ChaptersTab> {
   @override
   Widget build(BuildContext context) {
     final double screenHieght = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: screenHieght / 25),
+        padding: EdgeInsets.only(top: screenHieght / 25,left: screenWidth/30),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "18 Chapters",
+                  "11 Bookmarks",
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w400),
                 ),
                 Text(
@@ -55,22 +51,13 @@ class _ChaptersTabState extends State<ChaptersTab> {
                           borderRadius: BorderRadius.circular(18)),
                       child: Padding(
                         padding: EdgeInsets.only(
-                            left: screenWidth / 50,
+                            left: screenWidth / 45,
                             right: screenWidth / 50,
                             top: screenHieght / 50,
                             bottom: screenHieght / 50),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Row(
-                              children: [
-                                const Icon(
-                                  Icons.play_arrow,
-                                  size: 35,
-                                ),
-                                SizedBox(
-                                  width: screenWidth / 40,
-                                ),
                                 Column(
                                   children: [
                                     Text("Chapter 1",
@@ -78,7 +65,7 @@ class _ChaptersTabState extends State<ChaptersTab> {
                                             .textTheme
                                             .headlineSmall
                                             ?.copyWith(
-                                                fontWeight: FontWeight.w500)),
+                                                fontWeight: FontWeight.w500,)),
                                     SizedBox(
                                       height: screenWidth / 60,
                                     ),
@@ -87,14 +74,12 @@ class _ChaptersTabState extends State<ChaptersTab> {
                                             .textTheme
                                             .headlineSmall
                                             ?.copyWith(
-                                                fontWeight: FontWeight.w600))
+                                                fontWeight: FontWeight.w600,fontSize: 18))
                                   ],
                                 ),
-                              ],
-                            ),
                             Row(
                               children: [
-                                Text("3hrs 41 min",
+                                Text("04:29:36",
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineSmall
@@ -104,8 +89,8 @@ class _ChaptersTabState extends State<ChaptersTab> {
                                   width: screenWidth / 25,
                                 ),
                                 const Icon(
-                                  Icons.download_for_offline_outlined,
-                                  size: 30,
+                                  Icons.delete_outline,
+                                  size: 25,
                                 ),
                               ],
                             )

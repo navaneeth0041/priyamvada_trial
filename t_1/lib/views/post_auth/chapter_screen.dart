@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:t_1/views/tabs/bookmarks_tab_view.dart';
+import 'package:t_1/views/tabs/reviews_tab_view.dart';
+import 'package:t_1/views/tabs/chapters_tab_view.dart';
 import 'package:t_1/widgets/rounded_button.dart';
 
 class ChapterScreen extends StatefulWidget {
@@ -157,16 +160,16 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   child: Expanded(
                     child: TabBarView(children: [
                       Center(
-                        child: Text("first"),
+                        child: ChaptersTab(),
                       ),
                       Center(
-                        child: Text("second"),
+                        child: ReviewsTab(),
                       ),
                       Center(
                         child: Text("third"),
                       ),
                       Center(
-                        child: Text("fourth"),
+                        child: BookmarksTab(),
                       )
                     ]),
                   ),

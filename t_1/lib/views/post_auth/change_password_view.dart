@@ -47,6 +47,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 obscureText: !isPasswordVisible,
                 suffixIcon: isPasswordVisible
                     ? Icons.visibility
+                    // ignore: dead_code
                     : Icons.visibility_off,
               ),
             Text(
@@ -58,6 +59,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                 obscureText: !isPasswordVisible,
                 suffixIcon: isPasswordVisible
                     ? Icons.visibility
+                    // ignore: dead_code
                     : Icons.visibility_off,
              ),
             Text(
@@ -69,6 +71,7 @@ class _ChangePasswordState extends State<ChangePassword> {
               obscureText: !isPasswordVisible,
               suffixIcon: isPasswordVisible
                     ? Icons.visibility
+                    // ignore: dead_code
                     : Icons.visibility_off,
             ),
           ],
