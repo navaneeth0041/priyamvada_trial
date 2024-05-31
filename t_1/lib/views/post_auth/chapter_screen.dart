@@ -157,22 +157,20 @@ class _ChapterScreenState extends State<ChapterScreen> {
                 ]),
                 const SizedBox(
                   height: 300,
-                  child: Expanded(
-                    child: TabBarView(children: [
-                      Center(
-                        child: ChaptersTab(),
-                      ),
-                      Center(
-                        child: ReviewsTab(),
-                      ),
-                      Center(
-                        child: Text("third"),
-                      ),
-                      Center(
-                        child: BookmarksTab(),
-                      )
-                    ]),
-                  ),
+                  child: TabBarView(children: [
+                    Center(
+                      child: ChaptersTab(),
+                    ),
+                    Center(
+                      child: ReviewsTab(),
+                    ),
+                    Center(
+                      child: Text("third"),
+                    ),
+                    Center(
+                      child: BookmarksTab(),
+                    )
+                  ]),
                 )
               ],
             ),
