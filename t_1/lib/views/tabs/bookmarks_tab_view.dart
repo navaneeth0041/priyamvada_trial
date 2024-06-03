@@ -60,7 +60,7 @@ class BookmarksTab   extends StatelessWidget {
                           children: [
                                 Column(
                                   children: [
-                                    Text("Chapter 1",
+                                    Text("Chapter $index",
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineSmall

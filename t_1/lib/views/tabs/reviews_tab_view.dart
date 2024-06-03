@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class ReviewsTab extends StatelessWidget {
@@ -18,6 +16,7 @@ class ReviewsTab extends StatelessWidget {
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
@@ -82,7 +81,7 @@ class ReviewsTab extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 3,
+                  itemCount: 6,
                   shrinkWrap: true,
                   separatorBuilder: (context, index) {
                     return SizedBox(height: screenHieght / 65);
@@ -160,6 +159,7 @@ class ReviewsTab extends StatelessWidget {
                                     Expanded(
                                       child: Text(
                                         "It has been a pleasure reading through this",
+                                        overflow: TextOverflow.ellipsis,
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineSmall,

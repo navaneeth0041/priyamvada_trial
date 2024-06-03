@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:t_1/views/tabs/bookmarks_tab_view.dart';
+import 'package:t_1/views/tabs/notes_tab_view.dart';
 import 'package:t_1/views/tabs/reviews_tab_view.dart';
 import 'package:t_1/views/tabs/chapters_tab_view.dart';
+import 'package:t_1/widgets/gnav.dart';
 import 'package:t_1/widgets/rounded_button.dart';
 
 class ChapterScreen extends StatefulWidget {
@@ -13,10 +15,23 @@ class ChapterScreen extends StatefulWidget {
 }
 
 class _ChapterScreenState extends State<ChapterScreen> {
+  bool heartClicked = false;
+  final GlobalKey _chaptersTabKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     final double screenHieght = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
+
+    void clickHeart() {
+      setState(() {
+        heartClicked = !heartClicked;
+      });
+    }
+
+  ChaptersTab chaptersTab=new ChaptersTab();
+
+  double Chapterlength= provideLength(context);
     return DefaultTabController(
       length: 4,
       child: Scaffold(
@@ -32,8 +47,14 @@ class _ChapterScreenState extends State<ChapterScreen> {
           leading: IconButton(
               onPressed: () => (Navigator.pop(context)),
               icon: const Icon(Icons.arrow_back)),
-          actions: const [
-           IconButton(onPressed: null, icon: Icon(CupertinoIcons.heart))
+          actions: [
+            IconButton(
+                onPressed: () {
+                  clickHeart();
+                },
+                icon: heartClicked
+                    ? const Icon(CupertinoIcons.heart)
+                    : const Icon(CupertinoIcons.heart_fill))
           ],
         ),
         body: Padding(
@@ -139,25 +160,25 @@ class _ChapterScreenState extends State<ChapterScreen> {
                   height: screenHieght / 25,
                 ),
                 const TabBar(
-                  padding: EdgeInsets.zero,
-                  labelPadding: EdgeInsets.zero,
-                  tabs: [
-                  Tab(
-                    child: Text("Chapters"),
-                  ),
-                  Tab(
-                    child: Text("Reviews"),
-                  ),
-                  Tab(
-                    child: Text("Notes"),
-                  ),
-                  Tab(
-                     child: Text("Bookmarks"),
-                  )
-                ]),
-                const SizedBox(
-                  height: 300,
-                  child: TabBarView(children: [
+                    padding: EdgeInsets.zero,
+                    labelPadding: EdgeInsets.zero,
+                    tabs: [
+                      Tab(
+                        child: Text("Chapters"),
+                      ),
+                      Tab(
+                        child: Text("Reviews"),
+                      ),
+                      Tab(
+                        child: Text("Notes"),
+                      ),
+                      Tab(
+                        child: Text("Bookmarks"),
+                      )
+                    ]),
+                SizedBox(
+                  height: 2187 , // ( screenHieght/9 + screenHieght+65 )* lenght of listView
+                  child: const TabBarView(children: [
                     Center(
                       child: ChaptersTab(),
                     ),
@@ -165,17 +186,19 @@ class _ChapterScreenState extends State<ChapterScreen> {
                       child: ReviewsTab(),
                     ),
                     Center(
-                      child: Text("third"),
+                      child: NotesTab(),
                     ),
                     Center(
                       child: BookmarksTab(),
                     )
                   ]),
-                )
+                ),
               ],
             ),
           ),
         ),
+        // this is not necessary do remove this while pushing to gitlab
+        bottomNavigationBar: const CustomGNav(),
       ),
     );
   }

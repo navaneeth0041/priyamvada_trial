@@ -7,9 +7,17 @@ class ChaptersTab extends StatefulWidget {
   State<ChaptersTab> createState() => _ChaptersTabState();
 }
 
+double provideLength(BuildContext context1){ // this can be called in other pages
+  return MediaQuery.of(context1).size.height;
+}
 class _ChaptersTabState extends State<ChaptersTab> {
   @override
   Widget build(BuildContext context) {
+
+    double provideLength(){ // this cannot be called in other pages
+  return MediaQuery.of(context).size.height;
+}
+
     final double screenHieght = MediaQuery.of(context).size.height;
     final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
@@ -38,8 +46,9 @@ class _ChaptersTabState extends State<ChaptersTab> {
             ),
             Expanded(
               child: ListView.separated(
+                scrollDirection: Axis.vertical,
                   physics: const NeverScrollableScrollPhysics(),
-                  itemCount: 3,
+                  itemCount: 20,
                   shrinkWrap: true,
                   separatorBuilder: (context, index) {
                     return SizedBox(height: screenHieght / 65);
@@ -73,7 +82,7 @@ class _ChaptersTabState extends State<ChaptersTab> {
                                 ),
                                 Column(
                                   children: [
-                                    Text("Chapter 1",
+                                    Text("Chapter $index",
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineSmall
@@ -82,7 +91,7 @@ class _ChaptersTabState extends State<ChaptersTab> {
                                     SizedBox(
                                       height: screenWidth / 60,
                                     ),
-                                    Text("Adi Parva",
+                                    Text("$screenHieght",
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineSmall
@@ -114,7 +123,7 @@ class _ChaptersTabState extends State<ChaptersTab> {
                       ),
                     );
                   }),
-            )
+            ),
           ],
         ),
       ),
